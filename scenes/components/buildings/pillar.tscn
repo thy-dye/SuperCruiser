@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=4 uid="uid://b6ba72ak071yt"]
+
+[ext_resource type="Texture2D" uid="uid://0qyh58ilhtxn" path="res://models/Buildings/Pillar_Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="1_gtk30"]
+[ext_resource type="Texture2D" uid="uid://cwy6c3djgxy7p" path="res://models/Buildings/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png" id="2_d5lx6"]
+[ext_resource type="Texture2D" uid="uid://c6f1u35wydo6b" path="res://models/Buildings/Pillar_Poliigon_ConcreteFloorPoured_7656_Normal.png" id="3_443a6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj0f1"]
+resource_name = "Poliigon_ConcreteFloorPoured_7656_2K"
+cull_mode = 2
+albedo_texture = ExtResource("1_gtk30")
+metallic = 1.0
+metallic_texture = ExtResource("2_d5lx6")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_d5lx6")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_443a6")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qsqa5"]
+_surfaces = [{
+"aabb": AABB(-0.95105654, 0, -1, 1.9021131, 15, 2),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYABwAFAAYAAgAIAAYABwAGAAgABAAIAAIACQAFAAcACQAHAAgABQAKAAMACgAFAAkAAwALAAQAAwAKAAsACwAMAAQACwAKAAwADQAEAAwACAAEAA0ACgANAAwACQAIAA4ACgAPAA0AEAAJAA4ACgAJABEAEQAJABAACgARAA8ADwASAA0ADwARABIACAANABMACAATAA4AEwANABIAEAAOABMAEQATABIAEQAQABMA"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("/38AAAAAAAAaz///chgAAP9///8AAAAAGs8AAHIYAAD/////cVgAAOQwAAByGAAA5DD//3IYAAAAAAAAcVgAAAAA//9xWAAAAAAAAI2nAAD//wAAjacAAP//AABxWAAA/////42nAAAaz///jOcAAAAA//+NpwAAGs8AAIznAADkMAAAjOcAAP9/AAD//wAA/3//////AADkMP//jOcAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3ktar"]
+resource_name = "Pillar_Cylinder"
+_surfaces = [{
+"aabb": AABB(-0.95105654, 0, -1, 1.9021131, 15, 2),
+"attribute_data": PackedByteArray("//+kwDLz/3////9/MvOkwDLzpMBl5v9/MvP/f2XmpMBl5qTAmNn/f2Xm/3+Y2aTAmNmkwMvM/3+Y2f9/y8ykwMvMpMD/v/9/y8z/f/+/pMD/v6TAMrP/f/+//38ys6TAMrOkwGWm/38ys/9/ZaakwGWmpMCYmf9/Zab/f5iZpMA2vWDX/5/vwQ2y3MfIgmDX8I3cxw2yEfo2vY7q8I0R+v+f///Igo7qmJmkwMyM/3+Ymf9/zIykwMyMpMD/f/9/zIz/f/9/pMDwzdzHDfLcx//f78E2/Y7qNv1g18fCjurHwmDX/9////DNEfoN8hH6"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAIQAjACQAIwAgACUAJQAgACYAIwAlACcAJwAlACgAIwAnACkAKgArACwAKgAtACsALgAvADAALgAxAC8AMgAzADQAMgA1ADMAMwA1ADYANQAyADcANwAyADgANQA3ADkAOQA3ADoANQA5ADsA"),
+"material": SubResource("StandardMaterial3D_nj0f1"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(2, 1.98, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("/38AAAAAMvMaz///chgy8/9///8AADLzGs8AAHIYMvMazwAAchiY2f////9xWJjZGs///3IYmNn//wAAcViY2f//AABxWP+//////42n/7//////cVj/v///AACNp/+///8AAI2nZaYaz///jOdlpv////+Np2WmGs8AAIznZaYazwAAjOfLjP9//////8uMGs///4zny4z/fwAA///LjP9/AAD//8uM5DD//4zny4z/f//////LjOQwAACM58uM5DAAAIznZaYAAP//jadlpuQw//+M52WmAAAAAI2nZaYAAAAAjaf/vwAA//9xWP+/AAD//42n/78AAAAAcVj/v/////9xWP+//3///wAA/78az///chj/vwAA//9xWP+/5DD//3IY/78az///jOf/v/////+Np/+/5DD//4zn/7//f///////vwAA//+Np/+/AAAAAHFYmNnkMP//chiY2QAA//9xWJjZ5DAAAHIYmNnkMAAAchgy8/9///8AADLz5DD//3IYMvP/fwAAAAAy8+QwAAByGP8/Gs8AAHIY/z//fwAAAAD/P///AACNp/8///8AAHFY/z8AAAAAjaf/PwAAAABxWP8//38AAP///z/kMAAAjOf/PxrPAACM5/8//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/////f////3////9///////9/////f/7//3////9/////f////3/+//9/////f////3/+//9//3////9/////f////3////9/////f////3////9///8AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qsqa5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_043j6"]
+_surfaces = [{
+"aabb": AABB(-1.5, 0, -1.5, 3, 3, 3),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c1fer"]
+resource_name = "Pillar_Cube"
+_surfaces = [{
+"aabb": AABB(-1.5, 0, -1.5, 3, 3, 3),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_nj0f1"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_043j6")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t8vey"]
+_surfaces = [{
+"aabb": AABB(-1.5, 13.5, -1.5, 3, 3, 3),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gxq31"]
+resource_name = "Pillar_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1.5, 13.5, -1.5, 3, 3, 3),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_nj0f1"),
+"name": "Poliigon_ConcreteFloorPoured_7656_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_t8vey")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxn8m"]
+size = Vector3(3, 15, 3)
+
+[node name="Pillar" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_3ktar")
+skeleton = NodePath("")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_c1fer")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_gxq31")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("BoxShape3D_rxn8m")

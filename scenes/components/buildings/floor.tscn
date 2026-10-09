@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=4 uid="uid://bdlqs4ce3w5t3"]
+
+[ext_resource type="Texture2D" uid="uid://dn8bwlc6sxb77" path="res://models/Buildings/Floor_StoneBricksSplitface001_COL_2K.jpg" id="2_gq6gj"]
+[ext_resource type="Texture2D" uid="uid://0v117n04gmfa" path="res://models/Buildings/Floor_StoneBricksSplitface001_REFL_2K_jpg-StoneBricksSplitface001_GLOSS_2K_jpg.png" id="3_qfea2"]
+[ext_resource type="Texture2D" uid="uid://c8vuyf65mvhqg" path="res://models/Buildings/Floor_StoneBricksSplitface001_NRM_2K.jpg" id="4_0767j"]
+[ext_resource type="Texture2D" uid="uid://de5pjgahdjotd" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_BaseColor.jpg" id="5_rghai"]
+[ext_resource type="Texture2D" uid="uid://c2pglrw3qi17k" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_Metallic_2K_jpg-Poliigon_StoneQuartzite_8060_Roughness_2K_jpg.png" id="6_a2w8l"]
+[ext_resource type="Texture2D" uid="uid://cv6ym5u442qn" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_Normal.png" id="7_b6px4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uaech"]
+resource_name = "StoneBricksSplitface001_2K"
+cull_mode = 2
+albedo_texture = ExtResource("2_gq6gj")
+metallic = 1.0
+metallic_texture = ExtResource("3_qfea2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_qfea2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("4_0767j")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjqtl"]
+resource_name = "Poliigon_StoneQuartzite_8060_2K"
+cull_mode = 2
+albedo_texture = ExtResource("5_rghai")
+metallic = 1.0
+metallic_texture = ExtResource("6_a2w8l")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("6_a2w8l")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource("7_b6px4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nrb0p"]
+_surfaces = [{
+"aabb": AABB(-200, 15, -200, 400, 1e-05, 400),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "StoneBricksSplitface001_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-200, -15, -200, 400, 30, 400),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABQAAAAIAAwAAAAUABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Poliigon_StoneQuartzite_8060_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aceov"]
+resource_name = "Floor_Cube_001"
+_surfaces = [{
+"aabb": AABB(-200, 15, -200, 400, 1e-05, 400),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_uaech"),
+"name": "StoneBricksSplitface001_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA//8AAAAA/////wAAAAAAAP////8AAP//////f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(-200, -15, -200, 400, 30, 400),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_sjqtl"),
+"name": "Poliigon_StoneQuartzite_8060_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v1TVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/qiqqKqoqqiqqKqoqqiqqKv////////////////////8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nrb0p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxagg"]
+size = Vector3(600, 46, 600)
+
+[node name="Floor" type="StaticBody3D"]
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oxagg")

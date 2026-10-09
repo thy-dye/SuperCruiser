@@ -1,0 +1,920 @@
+[gd_scene load_steps=38 format=4 uid="uid://dd6vs3oalrm78"]
+
+[ext_resource type="Script" uid="uid://ctaqf8d42x1rc" path="res://scripts/world/World.cs" id="1_lakw3"]
+[ext_resource type="PackedScene" uid="uid://b6mdx38cj2gs0" path="res://scenes/components/player.tscn" id="1_nain1"]
+[ext_resource type="PackedScene" uid="uid://dsjr1kqjy6ey" path="res://scenes/components/bloodocean.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://c0nexoo7i2hbv" path="res://scenes/components/AreaDelegation.tscn" id="3_c7htk"]
+[ext_resource type="PackedScene" uid="uid://dxfxd0fjmtrac" path="res://scenes/UI/gameover.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bdlqs4ce3w5t3" path="res://scenes/components/buildings/floor.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://b6ba72ak071yt" path="res://scenes/components/buildings/pillar.tscn" id="6_qfnet"]
+[ext_resource type="Texture2D" uid="uid://dn8bwlc6sxb77" path="res://models/Buildings/Floor_StoneBricksSplitface001_COL_2K.jpg" id="7_q5onr"]
+[ext_resource type="Texture2D" uid="uid://0v117n04gmfa" path="res://models/Buildings/Floor_StoneBricksSplitface001_REFL_2K_jpg-StoneBricksSplitface001_GLOSS_2K_jpg.png" id="8_jhx03"]
+[ext_resource type="Texture2D" uid="uid://c8vuyf65mvhqg" path="res://models/Buildings/Floor_StoneBricksSplitface001_NRM_2K.jpg" id="9_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://de5pjgahdjotd" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_BaseColor.jpg" id="10_xo05s"]
+[ext_resource type="Texture2D" uid="uid://c2pglrw3qi17k" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_Metallic_2K_jpg-Poliigon_StoneQuartzite_8060_Roughness_2K_jpg.png" id="11_dss4m"]
+[ext_resource type="Texture2D" uid="uid://cv6ym5u442qn" path="res://models/Buildings/Floor_Poliigon_StoneQuartzite_8060_Normal.png" id="12_7t5mc"]
+[ext_resource type="Texture2D" uid="uid://btr16gc0vyqca" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_BaseColor.jpg" id="13_7t5mc"]
+[ext_resource type="Texture2D" uid="uid://d0x80nd4ajl64" path="res://textures/HDR/citrus_orchard_road_puresky_1k.exr" id="13_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://bmmyop7ba5703" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_Metallic_2K_jpg-Poliigon_ConcreteWorn_8690_Roughness_2K_jpg.png" id="14_lakw3"]
+[ext_resource type="AudioStream" uid="uid://dwvk2uugkkxrj" path="res://Music/glitch-shinkansen-2.mp3" id="14_xo05s"]
+[ext_resource type="Texture2D" uid="uid://8d2k407sb4u2" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_Normal.jpg" id="15_pm21f"]
+[ext_resource type="PackedScene" uid="uid://cbu4q80bb3txi" path="res://scenes/UI/UI.tscn" id="19_pm21f"]
+[ext_resource type="PackedScene" uid="uid://dsl15kihsjfds" path="res://scenes/explosion.tscn" id="20_2lf6f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lakw3"]
+resource_name = "StoneBricksSplitface001_2K"
+cull_mode = 2
+albedo_texture = ExtResource("7_q5onr")
+metallic = 1.0
+metallic_texture = ExtResource("8_jhx03")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("8_jhx03")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("9_o8fc1")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjqtl"]
+resource_name = "Poliigon_StoneQuartzite_8060_2K"
+cull_mode = 2
+albedo_texture = ExtResource("10_xo05s")
+metallic = 1.0
+metallic_texture = ExtResource("11_dss4m")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("11_dss4m")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource("12_7t5mc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nrb0p"]
+_surfaces = [{
+"aabb": AABB(-200, 15, -200, 400, 1e-05, 400),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "StoneBricksSplitface001_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-200, -15, -200, 400, 30, 400),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABQAAAAIAAwAAAAUABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Poliigon_StoneQuartzite_8060_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aceov"]
+resource_name = "Floor_Cube_001"
+_surfaces = [{
+"aabb": AABB(-200, 15, -200, 400, 1e-05, 400),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_lakw3"),
+"name": "StoneBricksSplitface001_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA//8AAAAA/////wAAAAAAAP////8AAP//////f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(-200, -15, -200, 400, 30, 400),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_sjqtl"),
+"name": "Poliigon_StoneQuartzite_8060_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v1TVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/qiqqKqoqqiqqKqoqqiqqKv////////////////////8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nrb0p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8fc1"]
+size = Vector3(400, 4.945, 400)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lakw3"]
+size = Vector3(75, 6, 160)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm21f"]
+size = Vector3(74.48, 6.055, 159.555)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbtbx"]
+resource_name = "Poliigon_ConcreteWorn_8690_2K"
+cull_mode = 2
+albedo_texture = ExtResource("13_7t5mc")
+metallic = 1.0
+metallic_texture = ExtResource("14_lakw3")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("14_lakw3")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("15_pm21f")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hovdp"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -4, 2, 1, 8),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAAACAAQAAwAEAAEAAAAEAAUAAwAFAAQAAwAAAAUA"),
+"name": "Poliigon_ConcreteWorn_8690_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAD/////AAAAAAAA//8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mwrhw"]
+resource_name = "ramp_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -4, 2, 1, 8),
+"attribute_data": PackedByteArray("fHKCjfjk/v98cv//+OSCjT45/38AAIMNPjmDDQAA/39xbGZmPjn/fz45AABxbGZmpJ8AAKSf/38AAP9/fHL//wAA//98cv9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_qbtbx"),
+"name": "Poliigon_ConcreteWorn_8690_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAP//VNX//wAAAABU1f//AAD//1TVAAAAAAAAVNUAAAAAAAD/v/////8AAP+///8AAAAA/78AAP//AAD/v///AAAAALLy/////wAAsvL//wAA//+y8gAAAAAAALLyAAAAAP//svIAAP//AACy8gAAAAD//w/F/////wAAD8UAAP//AAAPxf//AAD//w/FVNWqKlTVqipU1aoqVNWqKv9//3//f/9//3//f/9//3/BRoKNwUaCjcFGgo2DDT45gw0+OYMNPjkAAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hovdp")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7t5mc"]
+points = PackedVector3Array(1, 0, 4, -1, 0, 4, 1, 0, -4, 1, 1, -4, -1, 1, -4, -1, 0, -4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lakw3"]
+points = PackedVector3Array(1, 0, 4, -1, 0, 4, 1, 0, -4, 1, 1, -4, -1, 1, -4, -1, 0, -4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pm21f"]
+points = PackedVector3Array(1, 0, 4, -1, 0, 4, 1, 0, -4, 1, 1, -4, -1, 1, -4, -1, 0, -4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2lf6f"]
+points = PackedVector3Array(1, 0, 4, -1, 0, 4, 1, 0, -4, 1, 1, -4, -1, 1, -4, -1, 0, -4)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dss4m"]
+panorama = ExtResource("13_o8fc1")
+
+[sub_resource type="Sky" id="Sky_taeaw"]
+sky_material = SubResource("PanoramaSkyMaterial_dss4m")
+
+[sub_resource type="Environment" id="Environment_7t5mc"]
+background_mode = 2
+sky = SubResource("Sky_taeaw")
+ambient_light_sky_contribution = 0.75
+
+[node name="World" type="Node" node_paths=PackedStringArray("gameover", "ui", "T", "goalArea", "markerParent")]
+script = ExtResource("1_lakw3")
+gameover = NodePath("GameOver")
+ui = NodePath("Control")
+T = NodePath("Timer")
+goalArea = NodePath("Area Delegation")
+markerParent = NodePath("placements")
+
+[node name="mitsubishi" parent="." node_paths=PackedStringArray("area") instance=ExtResource("1_nain1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.24482, -92.18158)
+area = NodePath("../Area Delegation")
+
+[node name="BloodOcean" parent="." instance=ExtResource("2_4wyf3")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Area Delegation" parent="." instance=ExtResource("3_c7htk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="GameOver" parent="." instance=ExtResource("4_k0juu")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.6511584, 0.75894195, 0, -0.75894195, -0.6511584, 0, 25, 0)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="floorings" type="Node" parent="Buildings"]
+
+[node name="Floor1" parent="Buildings/floorings" instance=ExtResource("5_71j4m")]
+
+[node name="Floor2" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41, 0)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Floor2"]
+transform = Transform3D(1, 0, 0, 0, 0.16, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Floor2"]
+shape = SubResource("BoxShape3D_o8fc1")
+
+[node name="Roof2" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 62, 0)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof2"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof2"]
+shape = SubResource("BoxShape3D_lakw3")
+
+[node name="Roof1" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 62, 0)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof1"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof1"]
+shape = SubResource("BoxShape3D_lakw3")
+
+[node name="Roof3" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 104, 62.01854, -61)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof3"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof3"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="Roof4" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, -105, 62.01854, 67)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof4"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof4"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="Roof5" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, -207.3021, 40.406246, 105)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof5"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof5"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="Roof6" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 105.69791, 40.406246, 208)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof6"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof6"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="Roof7" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 207.40604, 40.406246, -104.612885)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof7"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof7"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="Roof8" type="StaticBody3D" parent="Buildings/floorings"]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.1, -106.59396, 41.406246, -207.61288)
+disable_mode = 1
+collision_mask = 0
+
+[node name="Cube" type="MeshInstance3D" parent="Buildings/floorings/Roof8"]
+transform = Transform3D(0.185, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aceov")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/floorings/Roof8"]
+shape = SubResource("BoxShape3D_pm21f")
+
+[node name="ramps" type="Node" parent="Buildings"]
+
+[node name="ramp1" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.444366, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp1"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp1"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_7t5mc")
+
+[node name="ramp4" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 42.55493, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp4"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp4"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_lakw3")
+
+[node name="ramp3" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 42.777466, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp3"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp3"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_pm21f")
+
+[node name="ramp2" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 41.888733, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp2"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp2"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_2lf6f")
+
+[node name="ramp5" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 104, 63.349, -38)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp5"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp5"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_2lf6f")
+
+[node name="ramp6" type="StaticBody3D" parent="Buildings/ramps"]
+transform = Transform3D(1, 0, 0, 0, 1.125, 0, 0, 0, 1, -104, 63.309, 44.22)
+
+[node name="Plane" type="MeshInstance3D" parent="Buildings/ramps/ramp6"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/ramps/ramp6"]
+transform = Transform3D(8.602, 0, 0, 0, 21.505, 0, 0, 0, 21.505, 208, -20, -11)
+shape = SubResource("ConvexPolygonShape3D_2lf6f")
+
+[node name="Pillars2nd" type="Node" parent="Buildings"]
+
+[node name="Pillar35" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, 11.075287)
+
+[node name="Pillar36" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, 29.075287)
+
+[node name="Pillar37" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, 48.075287)
+
+[node name="Pillar38" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, 68.07529)
+
+[node name="Pillar39" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, -65.92471)
+
+[node name="Pillar40" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, -46.924713)
+
+[node name="Pillar41" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, -26.924713)
+
+[node name="Pillar42" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, -6.924713)
+
+[node name="Pillar43" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, 11.075287)
+
+[node name="Pillar44" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, 29.075287)
+
+[node name="Pillar45" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, 48.075287)
+
+[node name="Pillar46" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, 68.07529)
+
+[node name="Pillar47" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, -65.92471)
+
+[node name="Pillar48" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, -46.924713)
+
+[node name="Pillar49" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, -26.924713)
+
+[node name="Pillar50" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, -6.924713)
+
+[node name="Pillar51" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 183.40787, 43.332584, 11.075287)
+
+[node name="Pillar52" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 118.40787, 43.332584, -6.924713)
+
+[node name="Pillar53" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, 11.075287)
+
+[node name="Pillar54" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, 29.075287)
+
+[node name="Pillar55" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, 48.075287)
+
+[node name="Pillar56" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, 68.07529)
+
+[node name="Pillar57" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, -65.92471)
+
+[node name="Pillar58" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, -46.924713)
+
+[node name="Pillar59" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, -26.924713)
+
+[node name="Pillar60" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, -6.924713)
+
+[node name="Pillar61" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, 11.075287)
+
+[node name="Pillar62" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, 29.075287)
+
+[node name="Pillar63" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, 48.075287)
+
+[node name="Pillar64" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, 68.07529)
+
+[node name="Pillar65" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, -65.92471)
+
+[node name="Pillar71" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -33.592133, 43.332584, -65.92471)
+
+[node name="Pillar72" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 46.407867, 43.332584, -65.92471)
+
+[node name="Pillar73" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.592133, 43.332584, 11.075287)
+
+[node name="Pillar80" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 60.35977, 43.332584, -9.793171)
+
+[node name="Pillar81" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29.92659, 43.332584, 30.494549)
+
+[node name="Pillar82" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -76.07341, 43.332584, -6.505451)
+
+[node name="Pillar83" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -73.07341, 43.332584, 50.49455)
+
+[node name="Pillar84" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.7341232, 43.332584, -31.819927)
+
+[node name="Pillar85" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51.734123, 43.332584, 68.18007)
+
+[node name="Pillar86" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.539482, 43.332584, 117.810974)
+
+[node name="Pillar87" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -68.46052, 43.332584, 123.810974)
+
+[node name="Pillar88" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -151.46051, 43.332584, 116.810974)
+
+[node name="Pillar89" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 151.53949, 43.332584, 111.810974)
+
+[node name="Pillar93" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 74.37399, 43.332584, 163.8977)
+
+[node name="Pillar94" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -65.48854, 43.332584, 176.75864)
+
+[node name="Pillar95" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -123.68422, 43.332584, 130.45934)
+
+[node name="Pillar96" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 63.31578, 43.332584, 69.459335)
+
+[node name="Pillar97" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.21196, 43.332584, 93.25204)
+
+[node name="Pillar98" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -89.38019, 43.332584, -144.69736)
+
+[node name="Pillar99" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 54.646423, 43.332584, -174.16685)
+
+[node name="Pillar100" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 127.51599, 43.332584, -192.4919)
+
+[node name="Pillar90" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 41.32972, 43.332584, -93.2814)
+
+[node name="Pillar91" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -38.220055, 43.332584, -163.19907)
+
+[node name="Pillar92" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.702232, 43.332584, -129.81546)
+
+[node name="Pillar74" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -118.59213, 43.332584, 118.07529)
+
+[node name="Pillar75" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 116.40787, 43.332584, 133.07529)
+
+[node name="Pillar76" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 135.40787, 43.332584, -141.92471)
+
+[node name="Pillar77" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.592133, 43.332584, 50.075287)
+
+[node name="Pillar78" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40.407867, 43.332584, -134.92471)
+
+[node name="Pillar79" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -140.59213, 43.332584, -151.92471)
+
+[node name="Pillar66" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, -46.924713)
+
+[node name="Pillar67" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, -26.924713)
+
+[node name="Pillar68" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, -6.924713)
+
+[node name="Pillar69" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -117.59213, 43.332584, 11.075287)
+
+[node name="Pillar70" parent="Buildings/Pillars2nd" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -182.59213, 43.332584, -6.924713)
+
+[node name="Pillars1st" type="Node" parent="Buildings"]
+
+[node name="Pillar" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.320404, 23, -135.96584)
+
+[node name="Pillar2" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.320404, 23, -135.96584)
+
+[node name="Pillar3" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.320404, 23, 148.03416)
+
+[node name="Pillar4" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.320404, 23, 148.03416)
+
+[node name="Pillar5" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 148.1796, 23, -3.4658356)
+
+[node name="Pillar6" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 148.1796, 23, 7.5341644)
+
+[node name="Pillar7" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -147.8204, 23, -3.4658356)
+
+[node name="Pillar8" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -147.8204, 23, 7.5341644)
+
+[node name="Pillar9" parent="Buildings/Pillars1st" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -147.8204, 23, 7.5341644)
+
+[node name="near ramps" type="Node" parent="Buildings/Pillars1st"]
+
+[node name="Pillar5" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.531128, 22.241707, -197.98096)
+
+[node name="Pillar6" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.531128, 22.241707, -197.98096)
+
+[node name="Pillar7" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.468872, 22.241707, -197.98096)
+
+[node name="Pillar8" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.468872, 22.241707, -197.98096)
+
+[node name="Pillar9" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.468872, 22.241707, -197.98096)
+
+[node name="Pillar10" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.46887, 22.241707, -197.98096)
+
+[node name="Pillar35" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.468872, 22.241707, -81.98096)
+
+[node name="Pillar55" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.47945, 22.241707, -52.85045)
+
+[node name="Pillar56" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.17139, 22.241707, -85.886284)
+
+[node name="Pillar57" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.192047, 22.241707, -162.14859)
+
+[node name="Pillar58" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.173527, 22.241707, -75.77699)
+
+[node name="Pillar59" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.27431, 22.241707, -138.3181)
+
+[node name="Pillar36" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.531128, 22.241707, -69.98096)
+
+[node name="Pillar37" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.53113, 22.241707, 85.01904)
+
+[node name="Pillar38" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.468872, 22.241707, 112.01904)
+
+[node name="Pillar39" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.468872, 22.241707, 15.019043)
+
+[node name="Pillar40" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.531128, 22.241707, -14.980957)
+
+[node name="Pillar41" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.46887, 22.241707, -130.98096)
+
+[node name="Pillar42" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.46887, 22.241707, 62.019043)
+
+[node name="Pillar43" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.46887, 22.241707, 136.01904)
+
+[node name="Pillar44" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.53113, 22.241707, -166.98096)
+
+[node name="Pillar45" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.53113, 22.241707, 155.01904)
+
+[node name="Pillar46" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.53113, 22.241707, -2.980957)
+
+[node name="Pillar47" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.53113, 22.241707, -130.98096)
+
+[node name="Pillar48" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.531128, 22.241707, -272.98096)
+
+[node name="Pillar49" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.46887, 22.241707, -144.98096)
+
+[node name="Pillar60" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.1612, 22.241707, -241.03923)
+
+[node name="Pillar61" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.34863, 22.241737, 1.2185974)
+
+[node name="Pillar62" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 280.64154, 22.241768, -56.326965)
+
+[node name="Pillar63" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.64154, 22.241768, 251.67303)
+
+[node name="Pillar64" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.62396, 22.241768, 262.08975)
+
+[node name="Pillar65" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.623962, 22.241768, 68.08975)
+
+[node name="Pillar66" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -231.62396, 22.241768, 257.08975)
+
+[node name="Pillar67" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.62396, 22.241768, -152.91025)
+
+[node name="Pillar68" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -231.62396, 22.241768, 24.089752)
+
+[node name="Pillar69" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.61395, 22.241768, -21.04943)
+
+[node name="Pillar70" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.47467, 22.241768, 121.31257)
+
+[node name="Pillar71" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.52533, 22.241768, 157.31256)
+
+[node name="Pillar72" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.52533, 22.241768, 16.312561)
+
+[node name="Pillar50" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.46887, 22.241707, 139.01904)
+
+[node name="Pillar51" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.46887, 22.241707, 230.01904)
+
+[node name="Pillar52" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.53113, 22.241707, 262.01904)
+
+[node name="Pillar53" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.53113, 22.241707, 262.01904)
+
+[node name="Pillar54" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.53113, 22.241707, 262.01904)
+
+[node name="Pillar3" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.265564, 22.120853, -197.99048)
+
+[node name="Pillar4" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.265564, 22.120853, -197.99048)
+
+[node name="Pillar19" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, -39.924713)
+
+[node name="Pillar20" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, -16.924713)
+
+[node name="Pillar21" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, 8.075287)
+
+[node name="Pillar22" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, 32.075287)
+
+[node name="Pillar23" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, 55.075287)
+
+[node name="Pillar24" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.40787, 22.241707, 79.07529)
+
+[node name="Pillar25" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.41739, 22.120853, -64.65915)
+
+[node name="Pillar26" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 197.41739, 22.120853, -92.65915)
+
+[node name="Pillar27" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, -26.924713)
+
+[node name="Pillar28" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, -3.9247131)
+
+[node name="Pillar29" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, 21.075287)
+
+[node name="Pillar30" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, 45.075287)
+
+[node name="Pillar31" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, 68.07529)
+
+[node name="Pillar32" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.59213, 22.241707, 92.07529)
+
+[node name="Pillar33" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.58261, 22.120853, -51.65915)
+
+[node name="Pillar34" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -197.58261, 22.120853, -79.65915)
+
+[node name="Pillar11" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.531128, 22.241707, 198.01904)
+
+[node name="Pillar12" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.531128, 22.241707, 198.01904)
+
+[node name="Pillar13" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.468872, 22.241707, 198.01904)
+
+[node name="Pillar14" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.468872, 22.241707, 198.01904)
+
+[node name="Pillar15" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.46887, 22.241707, 198.01904)
+
+[node name="Pillar16" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.46887, 22.241707, 198.01904)
+
+[node name="Pillar17" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.265564, 22.120853, 198.00952)
+
+[node name="Pillar18" parent="Buildings/Pillars1st/near ramps" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.265564, 22.120853, 198.00952)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7t5mc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_xo05s")
+autoplay = true
+parameters/looping = true
+
+[node name="placements" type="Node" parent="."]
+
+[node name="Node3D5" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.491699, 24, 13.643127)
+
+[node name="Node3D12" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.4917, 44, 13.643127)
+
+[node name="Node3D13" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.5083, 44, 13.643127)
+
+[node name="Node3D6" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.10797, 45, 146.83565)
+
+[node name="Node3D7" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.75739, 45, 144.51924)
+
+[node name="Node3D8" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.12457, 45, -148.50432)
+
+[node name="Node3D9" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.53174, 45, -136.92236)
+
+[node name="Node3D10" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.53174, 65, 1.0776367)
+
+[node name="Node3D11" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.46826, 65, 1.0776367)
+
+[node name="Node3D" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 23, -255)
+
+[node name="Node3D2" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264, 23, 276)
+
+[node name="Node3D17" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 23, 276)
+
+[node name="Node3D16" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264, 23, 10)
+
+[node name="Node3D3" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264, 23, 276)
+
+[node name="Node3D4" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264, 23, -271)
+
+[node name="Node3D15" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264, 23, 3)
+
+[node name="Node3D14" type="Node3D" parent="placements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 23, -271)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Control" parent="." instance=ExtResource("19_pm21f")]
+mouse_filter = 2
+
+[node name="explosion" parent="." instance=ExtResource("20_2lf6f")]
+
+[connection signal="Dead" from="mitsubishi" to="." method="OnDead"]
+[connection signal="Dead" from="mitsubishi" to="explosion" method="OnMitsubishiDead"]
+[connection signal="body_entered" from="BloodOcean" to="mitsubishi" method="OnOceanEntered"]
+[connection signal="body_entered" from="Area Delegation" to="." method="OnAreaEntered"]
+[connection signal="timeout" from="Timer" to="mitsubishi" method="OnTimeOut"]

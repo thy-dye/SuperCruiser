@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp8s4q1r4sq0o"]
+
+[ext_resource type="Material" uid="uid://coxyi47g77qpg" path="res://materials/prototype/test_map_GREEN.tres" id="1_4wuf8"]
+[ext_resource type="Material" uid="uid://cqx42rb6w4g6y" path="res://materials/prototype/test_map_PURPLE.tres" id="2_4wuf8"]
+[ext_resource type="PackedScene" uid="uid://b6mdx38cj2gs0" path="res://scenes/components/player.tscn" id="3_8mjap"]
+
+[node name="Test Map" type="Node"]
+
+[node name="mitsubishi" parent="." instance=ExtResource("3_8mjap")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, -0.059701443, -12)
+gravity_scale = 3.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(500, 6, 500)
+material = ExtResource("1_4wuf8")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08147049, 0)
+operation = 2
+size = Vector3(450, 6, 450)
+material = ExtResource("1_4wuf8")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 1, -1, -21)
+polygon = PackedVector2Array(-1, 0, -1, 1, -1, 1, 0, 0)
+depth = 4.0
+material = ExtResource("2_4wuf8")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(4, 0, 0, 0, 2.267, 0, 0, 0, 1.333, 1, -1, -14.848008)
+polygon = PackedVector2Array(-1, 0, -1, 1, -1, 1, 0, 0)
+depth = 4.0
+material = ExtResource("2_4wuf8")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, 22)
+radius = 4.0
+sides = 32
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -10)
+polygon = PackedVector2Array(-3, 0, -3, 1, -3, 1, 1, 0)
+depth = 4.0
+material = ExtResource("2_4wuf8")
+
+[node name="DirectionalLight2D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.35171098, 0.9361087, 0, -0.93610865, -0.35171098, 0, 28.122229, -20.173492)

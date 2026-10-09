@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=4 uid="uid://by6mhejv3ayb4"]
+
+[ext_resource type="Texture2D" uid="uid://btr16gc0vyqca" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_BaseColor.jpg" id="1_8ip72"]
+[ext_resource type="Texture2D" uid="uid://bmmyop7ba5703" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_Metallic_2K_jpg-Poliigon_ConcreteWorn_8690_Roughness_2K_jpg.png" id="2_xk251"]
+[ext_resource type="Texture2D" uid="uid://8d2k407sb4u2" path="res://models/Buildings/ramp_Poliigon_ConcreteWorn_8690_Normal.jpg" id="3_o74xn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbtbx"]
+resource_name = "Poliigon_ConcreteWorn_8690_2K"
+cull_mode = 2
+albedo_texture = ExtResource("1_8ip72")
+metallic = 1.0
+metallic_texture = ExtResource("2_xk251")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_xk251")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_o74xn")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hovdp"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -4, 2, 1, 8),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAAACAAQAAwAEAAEAAAAEAAUAAwAFAAQAAwAAAAUA"),
+"name": "Poliigon_ConcreteWorn_8690_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAD/////AAAAAAAA//8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mwrhw"]
+resource_name = "ramp_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -4, 2, 1, 8),
+"attribute_data": PackedByteArray("fHKCjfjk/v98cv//+OSCjT45/38AAIMNPjmDDQAA/39xbGZmPjn/fz45AABxbGZmpJ8AAKSf/38AAP9/fHL//wAA//98cv9/"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_qbtbx"),
+"name": "Poliigon_ConcreteWorn_8690_2K",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAP//VNX//wAAAABU1f//AAD//1TVAAAAAAAAVNUAAAAAAAD/v/////8AAP+///8AAAAA/78AAP//AAD/v///AAAAALLy/////wAAsvL//wAA//+y8gAAAAAAALLyAAAAAP//svIAAP//AACy8gAAAAD//w/F/////wAAD8UAAP//AAAPxf//AAD//w/FVNWqKlTVqipU1aoqVNWqKv9//3//f/9//3//f/9//3/BRoKNwUaCjcFGgo2DDT45gw0+OYMNPjkAAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hovdp")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s6i7w"]
+points = PackedVector3Array(1, 0, 4, -1, 0, 4, 1, 0, -4, 1, 1, -4, -1, 1, -4, -1, 0, -4)
+
+[node name="ramp" type="StaticBody3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_mwrhw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_s6i7w")

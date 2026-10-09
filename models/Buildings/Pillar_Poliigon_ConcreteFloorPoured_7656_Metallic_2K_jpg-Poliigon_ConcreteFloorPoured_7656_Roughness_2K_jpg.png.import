@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cwy6c3djgxy7p"
+path.s3tc="res://.godot/imported/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png-211dad42fc4f3e9be4fb51da54df996a.s3tc.ctex"
+path.etc2="res://.godot/imported/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png-211dad42fc4f3e9be4fb51da54df996a.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "217ace9f4c8fda3888bcf56386ccf284"
+}
+
+[deps]
+
+source_file="res://models/Buildings/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png"
+dest_files=["res://.godot/imported/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png-211dad42fc4f3e9be4fb51da54df996a.s3tc.ctex", "res://.godot/imported/Pillar_Poliigon_ConcreteFloorPoured_7656_Metallic_2K_jpg-Poliigon_ConcreteFloorPoured_7656_Roughness_2K_jpg.png-211dad42fc4f3e9be4fb51da54df996a.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

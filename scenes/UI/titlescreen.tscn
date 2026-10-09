@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjvhc15u4y1ao"]
+
+[ext_resource type="PackedScene" uid="uid://dsjr1kqjy6ey" path="res://scenes/components/bloodocean.tscn" id="1_rkse7"]
+[ext_resource type="PackedScene" uid="uid://dwuuaugu6r8a6" path="res://scenes/quantizer.tscn" id="1_taeaw"]
+[ext_resource type="PackedScene" uid="uid://1fxsvrqbf41b" path="res://scenes/UI/Main.tscn" id="2_ck54k"]
+[ext_resource type="Texture2D" uid="uid://d0x80nd4ajl64" path="res://textures/HDR/citrus_orchard_road_puresky_1k.exr" id="3_cxvq4"]
+[ext_resource type="AudioStream" uid="uid://cy2tat2ns1khw" path="res://Music/techtheist-exdnbd-224289.mp3" id="4_q0ub4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q0ub4"]
+panorama = ExtResource("3_cxvq4")
+
+[sub_resource type="Sky" id="Sky_taeaw"]
+sky_material = SubResource("PanoramaSkyMaterial_q0ub4")
+
+[sub_resource type="Environment" id="Environment_74c6l"]
+background_mode = 2
+sky = SubResource("Sky_taeaw")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4, 7)
+
+[node name="Node3D" parent="Camera3D" instance=ExtResource("1_taeaw")]
+
+[node name="Control" parent="." instance=ExtResource("2_ck54k")]
+
+[node name="BloodOcean" parent="." instance=ExtResource("1_rkse7")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.88611466, 0.46346608, 0, -0.46346608, -0.88611466, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_74c6l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q0ub4")
+autoplay = true
+parameters/looping = true

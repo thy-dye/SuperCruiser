@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpva6ofadi0f"]
+
+[ext_resource type="PackedScene" uid="uid://dvonioxnfm3xg" path="res://models/Mitsubishi_model/arrow.glb" id="1_ikmfy"]
+
+[node name="arrow" instance=ExtResource("1_ikmfy")]
